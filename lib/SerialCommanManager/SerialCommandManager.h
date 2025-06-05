@@ -16,5 +16,4 @@ private : DS3231Manager &rtcRef;
     const unsigned long INPUT_TIMEOUT_MS = 10000;
     std::function<void(bool)> onUserInputStateChange;
     void processCommand(const String& command);
-    
 };

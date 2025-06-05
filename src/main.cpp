@@ -2,7 +2,7 @@
 #include "DS3231Manager.h"
 #include "SerialCommandManager.h"
 
-#define LED_BUILTIN 2 // Modificá si usás otro ESP32
+#define LED_BUILTIN 2
 
 bool alarmTriggered = false;
 const unsigned long PRINT_INTERVAL_MS = 60000;
@@ -32,7 +32,7 @@ void loop() {
     if (allowPrint && millis() - lastPrint >= PRINT_INTERVAL_MS) {
         lastPrint = millis();
         Serial.println(rtc.formattedTime());
-        serialCmd.printPrompt(); // <-- ¡Esto es clave!
+        serialCmd.printPrompt();
 
         if (rtc.checkAlarm()) {
             digitalWrite(LED_BUILTIN, HIGH);

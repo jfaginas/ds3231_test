@@ -25,37 +25,37 @@ void SerialCommandManager::update() {
     while (Serial.available()) {
         char c = Serial.read();
 
-        if (c == '\r') continue; // ignorar retorno de carro
+        if (c == '\r') continue;
         if (c == '\n') {
-            Serial.println(); // salto de línea al final del comando
-            processCommand(buffer); // <-- usar `buffer`, no duplicar lógica
-            buffer = ""; // limpiar buffer
+            Serial.println();
+            processCommand(buffer);
+            buffer = ""; 
             return;
         }
 
-        if (c == '\b' || c == 127) { // backspace
+        if (c == '\b' || c == 127) {
             if (buffer.length() > 0) {
                 buffer.remove(buffer.length() - 1);
-                Serial.print("\b \b"); // borrar visualmente
+                Serial.print("\b \b");
             }
         } else {
             buffer += c;
             Serial.print(c);
         }
     }
-    // Timeout: no se escribe nada hace más de X tiempo
+    // Timeout: si no se escribe nada en X tiempo  salta
     if (userIsTyping && (millis() - lastInputTime > INPUT_TIMEOUT_MS)) {
         userIsTyping = false;
         buffer = "";
         if (onUserInputStateChange) {
-            onUserInputStateChange(false); // volver a activar impresión
+            onUserInputStateChange(false);
         }
         printPrompt();
     }
 }
 
 void SerialCommandManager::processCommand(const String& command) {
-    if (command.length() == 0) return;  // Si el comando está vacío, salimos
+    if (command.length() == 0) return;
 
     if (rtcRef.setDateTime(command)) {
         Serial.println("\nFecha y hora actualizadas.");
@@ -69,5 +69,4 @@ void SerialCommandManager::processCommand(const String& command) {
         }
     }
 
-    printPrompt(); // Importante: para volver a mostrar el ">"
-}
+    printPrompt();
