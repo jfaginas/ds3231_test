@@ -70,3 +70,4 @@ void SerialCommandManager::processCommand(const String& command) {
     }
 
     printPrompt();
+}
