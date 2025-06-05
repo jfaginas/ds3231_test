@@ -15,10 +15,10 @@ Este proyecto usa un ESP32 conectado a un módulo RTC DS3231. Muestra fecha y ho
 - ✅ Integración básica de tiempo real con ESP32.
 
 ## 💻 Comandos por consola
-
+```text
 SET=DD/MM/YYYY HH:MM          # Establece nueva fecha y hora
 ALARM=HH:MM                   # Establece hora de alarma (enciende LED)
-
+```
 
 > Al recibir entrada del usuario, el sistema pausa el refresco automático de hora para permitir la escritura del comando.
 
