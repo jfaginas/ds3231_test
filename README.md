@@ -1,4 +1,4 @@
-# ESP32 + DS3231 Terminal Time Manager
+# ESP32 + RTC DS3231 - Reloj Alarma por terminal
 
 Este proyecto usa un ESP32 conectado a un módulo RTC DS3231. Muestra fecha y hora por la terminal cada minuto. Se puede cambiar la fecha y la hora a través del comando SET= y el horario de activación de una alarma luminosa (Led interno del ESP32) a través del comando ALARM=.
 
@@ -37,7 +37,7 @@ ds3231_test
 ├── README.md
 └── src
     └── main.cpp
-
+```
 
 ## 🔌 Conexiones
 
