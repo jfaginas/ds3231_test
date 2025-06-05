@@ -24,18 +24,19 @@ ALARM=HH:MM                   # Establece hora de alarma (enciende LED)
 
 ## 📂 Estructura del código
 
-   ds3231_test
-    ├── lib
-    │   ├── DS3231Manager
-    │   │   ├── DS3231Manager.cpp
-    │   │   └── DS3231Manager.h
-    │   └── SerialCommanManager
-    │       ├── SerialCommandManager.cpp
-    │       └── SerialCommandManager.h
-    ├── platformio.ini
-    ├── README.md
-    └── src
-        └── main.cpp
+```text
+ds3231_test
+├── lib
+│   ├── DS3231Manager
+│   │   ├── DS3231Manager.cpp
+│   │   └── DS3231Manager.h
+│   └── SerialCommandManager
+│       ├── SerialCommandManager.cpp
+│       └── SerialCommandManager.h
+├── platformio.ini
+├── README.md
+└── src
+    └── main.cpp
 
 
 ## 🔌 Conexiones
